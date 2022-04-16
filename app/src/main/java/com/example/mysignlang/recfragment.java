@@ -10,6 +10,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.google.firebase.database.FirebaseDatabase;
+
+
 /**
  * A simple {@link Fragment} subclass.
  * Use the {@link recfragment#newInstance} factory method to
@@ -69,9 +72,9 @@ public class recfragment extends Fragment {
 
         recview.setLayoutManager(new LinearLayoutManager(getContext()));
 
-        FirebaseRecyclerOptions<Chat> options =
-                new FirebaseRecyclerOptions.Builder<Chat>()
-                        .setQuery(query, Chat.class)
+        FirebaseRecyclerOptions<models> options =
+                new FirebaseRecyclerOptions.Builder<models>()
+                        .setQuery(FirebaseDatabase.getInstance().getReference().child("characters"), models.class)
                         .build();
 
         return view;
