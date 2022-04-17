@@ -15,11 +15,6 @@ import com.firebase.ui.database.FirebaseRecyclerOptions;
 
 
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link recfragment#newInstance} factory method to
- * create an instance of this fragment.
- */
 public class recfragment extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match
@@ -32,19 +27,13 @@ public class recfragment extends Fragment {
     private String mParam2;
 
     RecyclerView recview;
+    myadapter adapter;
 
     public recfragment() {
         // Required empty public constructor
     }
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment recfragment.
-     */
+
     // TODO: Rename and change types and number of parameters
     public static recfragment newInstance(String param1, String param2) {
         recfragment fragment = new recfragment();
@@ -70,7 +59,7 @@ public class recfragment extends Fragment {
         // Inflate the layout for this fragment
         View view=inflater.inflate(R.layout.fragment_recfragment, container, false);
 
-        recview=(RecyclerView)view.findViewById(R.id.recview1);
+        recview=(RecyclerView)view.findViewById(R.id.recview);
 
         recview.setLayoutManager(new LinearLayoutManager(getContext()));
 
@@ -79,7 +68,21 @@ public class recfragment extends Fragment {
                         .setQuery(FirebaseDatabase.getInstance().getReference().child("characters"), models.class)
                         .build();
 
+        adapter = new myadapter(options);
+        recview.setAdapter(adapter);
         return view;
 
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        adapter.startListening();
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        adapter.stopListening();
     }
 }

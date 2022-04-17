@@ -12,6 +12,6 @@ public class CharList extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_char_list);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
-        getSupportFragmentManager().beginTransaction().replace(R.id.wrapper1,new recfragment()).commit();
+        getSupportFragmentManager().beginTransaction().replace(R.id.wrapper,new recfragment()).commit();
     }
 }
