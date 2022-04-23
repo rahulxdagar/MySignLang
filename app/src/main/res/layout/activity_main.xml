@@ -4,26 +4,28 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/black"
+    android:background="@drawable/mainbackground"
     tools:context=".MainActivity">
 
     <Button
         android:id="@+id/charbutton"
         android:layout_width="250dp"
         android:layout_height="120dp"
+        android:backgroundTint="#FDA4BA"
         android:text="Characters"
         app:layout_constraintBottom_toTopOf="@+id/phrasebutton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.838" />
+        app:layout_constraintVertical_bias="0.844" />
 
     <Button
         android:id="@+id/phrasebutton"
         android:layout_width="250dp"
         android:layout_height="120dp"
         android:layout_marginBottom="188dp"
+        android:backgroundTint="#FDA4BA"
         android:text="Phrases"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -40,7 +42,7 @@
         android:text="Choose One to Practice"
         android:textStyle="bold"
         android:textSize="20dp"
-        android:textColor="@color/fui_bgGoogle"
+        android:textColor="@color/white"
         app:layout_constraintBottom_toTopOf="@+id/charbutton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
